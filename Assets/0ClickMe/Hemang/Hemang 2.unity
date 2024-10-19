@@ -182,10 +182,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.05882353, g: 1, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.05301428, g: 1, b: 0, a: 1}
-    m_PressedColor: {r: 0.05882353, g: 1, b: 0, a: 1}
-    m_SelectedColor: {r: 0.05882353, g: 1, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1025,12 +1025,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 69970569}
-  maxStamina: 100
+  staminaBarFill: {fileID: 437019946}
+  StaminaOrb: {fileID: 1601583704}
+  fullStaminaColor: {r: 0, g: 1, b: 0, a: 1}
+  emptyStaminaColor: {r: 1, g: 0, b: 0, a: 1}
+  maxStamina: 20
   currentStamina: 0
   staminaDrainRate: 10
   staminaRegenRate: 5
-  runSpeedMultiplier: 10
-  normalSpeed: 1
+  runSpeedMultiplier: 2
+  normalSpeed: 5
   characterController: {fileID: 1445641758}
   cameraTransform: {fileID: 296140578}
 --- !u!1 &1601583702
