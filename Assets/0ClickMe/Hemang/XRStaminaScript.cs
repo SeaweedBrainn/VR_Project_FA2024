@@ -101,6 +101,7 @@ public class StaminaManager : MonoBehaviour
                 StopRunning(); // Stop running if stamina is depleted
                 canRun = false; // Disable running until stamina is fully regenerated
                 staminaBarFill.color = emptyStaminaColor; // Turn stamina bar red
+                StaminaOrb.color = emptyStaminaColor;
             }
         }
         else if ((!isRunning || movementInput == Vector2.zero) && currentStamina < maxStamina)
@@ -112,6 +113,7 @@ public class StaminaManager : MonoBehaviour
                 currentStamina = maxStamina;
                 canRun = true; // Allow running again when stamina is fully regenerated
                 staminaBarFill.color = fullStaminaColor; // Turn stamina bar green
+                StaminaOrb.color = fullStaminaColor;
             }
         }
 
