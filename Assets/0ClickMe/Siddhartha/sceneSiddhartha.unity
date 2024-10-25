@@ -1162,7 +1162,6 @@ GameObject:
   - component: {fileID: 1866680384}
   - component: {fileID: 1866680389}
   - component: {fileID: 1866680388}
-  - component: {fileID: 1866680390}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1271,6 +1270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1477730722}
+  fireDelay: 15
+  stalkRange: 10
+  mapRange: 100
+  stalkChance: 3
+  hideChance: 3
 --- !u!195 &1866680389
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1293,19 +1297,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1866680390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866680383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844e1e5f729e58f49b7abeead66dca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 1477730718}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
