@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/0ClickMe/Hemang/MainScene.unity
+    guid: 9e0171df8ff664243af6e5a730e9988a
+  - enabled: 1
+    path: Assets/0ClickMe/Hemang/GameFinishScreen.unity
+    guid: c386961047a9842939c987884a83279f
+  - enabled: 1
+    path: Assets/0ClickMe/Hemang/GameOverScene.unity
+    guid: a03c180cf7b914eada64d08fea24bd42
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1a528fd341b0242ffb9d327fd1555a00,
       type: 2}

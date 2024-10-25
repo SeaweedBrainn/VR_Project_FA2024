@@ -14,13 +14,16 @@ public class Nextbot : MonoBehaviour
     public float fireDelay = 10.0f;
     public int stalkRange = 10;
     public int mapRange = 100;
-    private static bool chase = false;
-    private static bool stalk = false;
-    public static float posx;
-    public static float posz;
+    private bool chase = false;
+    private bool stalk = false;
+    public float posx;
+    public float posz;
     public int stalkChance = 3;
     public int hideChance = 3;
-
+    public Material stalkMaterial;
+    public Material chaseMaterial;
+    public Material hideMaterial;
+    
 
     void Start()
     {
@@ -69,6 +72,7 @@ public class Nextbot : MonoBehaviour
             posx = rnd.Next(-stalkRange, stalkRange);
             posz = rnd.Next(-stalkRange, stalkRange);
             Debug.Log("Stalking at " + posx + " " + posz);
+            GetComponent<Renderer>().material = stalkMaterial;
         }
         else if (num >= stalkChance && num < hideChance + stalkChance)
         {
@@ -77,11 +81,13 @@ public class Nextbot : MonoBehaviour
             posx = rnd.Next(-mapRange, mapRange);
             posz = rnd.Next(-mapRange, mapRange);
             Debug.Log("Hiding at " + posx + " " + posz);
+            GetComponent<Renderer>().material = hideMaterial;
         }
         else {
             chase = true;
             stalk = false;
             Debug.Log("Chasing Player");
+            GetComponent<Renderer>().material = chaseMaterial;
         }
     }
 
