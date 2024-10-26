@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 1144587897}
   - component: {fileID: 1144587896}
   - component: {fileID: 1144587895}
+  - component: {fileID: 1144587900}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -440,6 +441,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &1144587900
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144587894}
+  m_Enabled: 1
+  m_MinDistance: 10
+  m_MaxDistance: 15
+  m_ReverbPreset: 1
+  m_Room: -1000
+  m_RoomHF: -100
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.83
+  m_Reflections: -2602
+  m_ReflectionsDelay: 0.007
+  m_Reverb: 200
+  m_ReverbDelay: 0.011
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &1160406402
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +729,7 @@ GameObject:
   - component: {fileID: 1244388991}
   - component: {fileID: 1244388990}
   - component: {fileID: 1244388989}
+  - component: {fileID: 1244388994}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -813,6 +839,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!167 &1244388994
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244388988}
+  m_Enabled: 1
+  m_MinDistance: 10
+  m_MaxDistance: 15
+  m_ReverbPreset: 1
+  m_Room: -1000
+  m_RoomHF: -100
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.83
+  m_Reflections: -2602
+  m_ReflectionsDelay: 0.007
+  m_Reverb: 200
+  m_ReverbDelay: 0.011
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &1475667343
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +876,7 @@ GameObject:
   - component: {fileID: 1475667346}
   - component: {fileID: 1475667345}
   - component: {fileID: 1475667344}
+  - component: {fileID: 1475667349}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -935,6 +986,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &1475667349
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475667343}
+  m_Enabled: 1
+  m_MinDistance: 10
+  m_MaxDistance: 15
+  m_ReverbPreset: 1
+  m_Room: -1000
+  m_RoomHF: -100
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.83
+  m_Reflections: -2602
+  m_ReflectionsDelay: 0.007
+  m_Reverb: 200
+  m_ReverbDelay: 0.011
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &1477730718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2,
@@ -1273,8 +1348,13 @@ MonoBehaviour:
   fireDelay: 15
   stalkRange: 10
   mapRange: 100
+  posx: 0
+  posz: 0
   stalkChance: 3
   hideChance: 3
+  stalkMaterial: {fileID: 0}
+  chaseMaterial: {fileID: 0}
+  hideMaterial: {fileID: 0}
 --- !u!195 &1866680389
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1285,10 +1365,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.75
-  m_Speed: 4
-  m_Acceleration: 4
+  m_Speed: 3
+  m_Acceleration: 2
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 285
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
