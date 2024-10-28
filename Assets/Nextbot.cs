@@ -23,6 +23,7 @@ public class Nextbot : MonoBehaviour
     public Material stalkMaterial;
     public Material chaseMaterial;
     public Material hideMaterial;
+    private bool hasStopped = false;
     
 
     void Start()
@@ -50,7 +51,16 @@ public class Nextbot : MonoBehaviour
         else {
             Vector3 randomRange = new Vector3(posx, 0.0f, posz);
             agent.destination = randomRange;
-            //Debug.Log("Hiding");
+            //Debug.Log("Hiding")
+        }
+        if (agent.velocity.sqrMagnitude <= 0.0001 && !hasStopped)
+        {
+            hasStopped = true;
+            ExecuteAction(); // Execute action when stopped
+        }
+        else if (agent.velocity.sqrMagnitude > 0.0001)
+        {
+            hasStopped = false; // Reset if agent starts moving again
         }
     }
 
