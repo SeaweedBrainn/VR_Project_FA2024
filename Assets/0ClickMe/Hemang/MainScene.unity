@@ -13386,7 +13386,7 @@ PrefabInstance:
     - target: {fileID: 4761132814212753036, guid: 4e6de11e7d61c48589e6f76009b873cf,
         type: 3}
       propertyPath: m_TagString
-      value: room2Buttons
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5284290914018242940, guid: 4e6de11e7d61c48589e6f76009b873cf,
         type: 3}
@@ -33215,7 +33215,7 @@ PrefabInstance:
     - target: {fileID: 4761132814212753036, guid: 4e6de11e7d61c48589e6f76009b873cf,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: room2Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 5284290914018242940, guid: 4e6de11e7d61c48589e6f76009b873cf,
         type: 3}
