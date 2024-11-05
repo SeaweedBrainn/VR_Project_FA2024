@@ -15,9 +15,9 @@ MonoBehaviour:
   m_LayerNames:
   - Default
   - Flag
-  - Room1
-  - 
-  - 
+  - Room1Cube
+  - Room1Sphere
+  - Room1Cylinder
   - 
   - 
   - 
