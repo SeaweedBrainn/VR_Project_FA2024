@@ -23,13 +23,14 @@ public class Nextbot : MonoBehaviour
     public Material stalkMaterial;
     public Material chaseMaterial;
     public Material hideMaterial;
+    private Coroutine sparseCoroutine;
     
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         chase = true;
-        StartCoroutine(SparseUpdate());
+        sparseCoroutine = StartCoroutine(SparseUpdate());
 
     }
 
@@ -55,6 +56,7 @@ public class Nextbot : MonoBehaviour
         if (agent.velocity.sqrMagnitude <= 0.0001)
         {
             ExecuteAction(); // Execute action when stopped
+            ResetCoroutine();
         }
     }
 
@@ -75,7 +77,6 @@ public class Nextbot : MonoBehaviour
             stalk = true;
             posx = rnd.Next(-stalkRange, stalkRange);
             posz = rnd.Next(-stalkRange, stalkRange);
-            Debug.Log("Stalking at " + posx + " " + posz);
             GetComponent<Renderer>().material = stalkMaterial;
         }
         else if (num >= stalkChance && num < hideChance + stalkChance)
@@ -84,15 +85,22 @@ public class Nextbot : MonoBehaviour
             stalk = false;
             posx = rnd.Next(-mapRange, mapRange);
             posz = rnd.Next(-mapRange, mapRange);
-            Debug.Log("Hiding at " + posx + " " + posz);
             GetComponent<Renderer>().material = hideMaterial;
         }
         else {
             chase = true;
             stalk = false;
-            Debug.Log("Chasing Player");
             GetComponent<Renderer>().material = chaseMaterial;
         }
+    }
+    
+    void ResetCoroutine()
+    {
+        if (sparseCoroutine != null)
+        {
+            StopCoroutine(sparseCoroutine);
+        }
+        sparseCoroutine = StartCoroutine(SparseUpdate());
     }
 
 }
