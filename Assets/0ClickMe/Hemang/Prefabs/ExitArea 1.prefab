@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2298919682802936121}
   - component: {fileID: 1384622491337530363}
   - component: {fileID: 3320595511714027678}
-  - component: {fileID: 1040164197126635620}
+  - component: {fileID: 4452753128740446126}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1040164197126635620
-MeshCollider:
+--- !u!65 &4452753128740446126
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.000000016104051, z: 10.000004}
+  m_Center: {x: -0.00000023841858, y: 0, z: 0}
 --- !u!1 &402398944097689733
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +134,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -4.9700003, y: 4.657, z: -0.06278271}
-  m_LocalScale: {x: 10.064762, y: 9.379741, z: -0.020000001}
+  m_LocalScale: {x: 10.064762, y: 9.379741, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2568217136040594933}
@@ -240,7 +239,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 4.99, y: 4.675, z: -0.033962008}
-  m_LocalScale: {x: 10.122855, y: 9.375721, z: -0.020000001}
+  m_LocalScale: {x: 10.122855, y: 9.375721, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2568217136040594933}
@@ -345,7 +344,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0398, y: 4.66, z: 5.0001063}
-  m_LocalScale: {x: 10.13, y: 9.373917, z: -0.021427043}
+  m_LocalScale: {x: 10.13, y: 9.373917, z: 0.02142704}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2568217136040594933}
@@ -432,8 +431,8 @@ GameObject:
   - component: {fileID: 2568217136040594933}
   - component: {fileID: 336776234419041366}
   - component: {fileID: 8029532477976343490}
-  - component: {fileID: 8194155306219344690}
   - component: {fileID: 5973051378211720068}
+  - component: {fileID: 5408163335565887441}
   m_Layer: 0
   m_Name: ExitArea 1
   m_TagString: Untagged
@@ -510,28 +509,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8194155306219344690
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5508862973116399294}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!208 &5973051378211720068
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -548,6 +525,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!65 &5408163335565887441
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508862973116399294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6043544194038812089
 GameObject:
   m_ObjectHideFlags: 0
