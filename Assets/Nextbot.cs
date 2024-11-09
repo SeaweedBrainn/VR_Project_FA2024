@@ -71,26 +71,29 @@ public class Nextbot : MonoBehaviour
 
     void ExecuteAction() {
         int num = rnd.Next(10);
-        if (num < stalkChance)
-        {
-            chase = false;
-            stalk = true;
-            posx = rnd.Next(-stalkRange, stalkRange);
-            posz = rnd.Next(-stalkRange, stalkRange);
-            GetComponent<Renderer>().material = stalkMaterial;
-        }
-        else if (num >= stalkChance && num < hideChance + stalkChance)
+        if ((num >= stalkChance && num < hideChance + stalkChance) || (target.position.y > 100))
         {
             chase = false;
             stalk = false;
             posx = rnd.Next(-mapRange, mapRange);
             posz = rnd.Next(-mapRange, mapRange);
             GetComponent<Renderer>().material = hideMaterial;
+            
+        }
+        else if (num < stalkChance)
+        {
+            chase = false;
+            stalk = true;
+            posx = rnd.Next(-stalkRange, stalkRange);
+            posz = rnd.Next(-stalkRange, stalkRange);
+            GetComponent<Renderer>().material = stalkMaterial;
+            
         }
         else {
             chase = true;
             stalk = false;
             GetComponent<Renderer>().material = chaseMaterial;
+            
         }
     }
     

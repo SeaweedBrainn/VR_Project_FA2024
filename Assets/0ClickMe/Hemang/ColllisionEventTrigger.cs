@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class CollisionEventTrigger : MonoBehaviour
 {
     // The tag of the objects to detect collision with
-    public string targetTag = "player";
+    public string targetTag = "Player";
 
     // Unity Event to invoke upon collision with the target object
     public UnityEvent onTargetCollision;
