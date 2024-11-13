@@ -46,18 +46,12 @@ public class SnapToDirectInteractorManager : MonoBehaviour
     {
         if (leftDirectInteractor != null && !leftDirectInteractor.hasSelection)
         {
-            // Store the object's current scale
-            Vector3 originalScale = grabInteractable.transform.localScale;
-
+            grabInteractable.transform.localScale = Vector3.one;
             // Deselect from the ray interactor
             interactionManager.SelectExit(grabInteractable.interactorsSelecting[0], grabInteractable);
 
             // Select the object with the left-hand direct interactor
             interactionManager.SelectEnter(leftDirectInteractor, grabInteractable);
-
-            // Reset the scale after switching interactors
-            grabInteractable.transform.localScale = originalScale;
         }
     }
-
 }
