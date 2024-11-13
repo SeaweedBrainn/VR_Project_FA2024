@@ -4,37 +4,37 @@ using System.Collections.Generic;
 
 public class SnapToDirectInteractorManager : MonoBehaviour
 {
-    // Specify left-hand direct interactor here
     public XRDirectInteractor leftDirectInteractor;
-
     private XRInteractionManager interactionManager;
-    private List<XRGrabInteractable> interactables = new List<XRGrabInteractable>();
 
     private void Awake()
     {
-        // Find or assign the XRInteractionManager in the scene
         interactionManager = FindObjectOfType<XRInteractionManager>();
 
-        // Get all XRGrabInteractables in the scene
-        foreach (var interactable in FindObjectsOfType<XRGrabInteractable>())
+        // Register select events for all existing XRGrabInteractables
+        RegisterInteractablesOnSceneLoad();
+    }
+
+    private void RegisterInteractablesOnSceneLoad()
+    {
+        foreach (var interactable in FindObjectsOfType<XRGrabInteractable>(true)) // 'true' to include inactive objects
         {
-            interactables.Add(interactable);
             interactable.selectEntered.AddListener(OnSelectEntered);
         }
     }
 
     private void OnDestroy()
     {
-        // Remove event listeners to prevent memory leaks
-        foreach (var interactable in interactables)
+        foreach (var interactable in FindObjectsOfType<XRGrabInteractable>())
         {
-            interactable.selectEntered.RemoveListener(OnSelectEntered);
+            if (interactable != null)
+                interactable.selectEntered.RemoveListener(OnSelectEntered);
         }
     }
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        // Check if the interactor is a Ray Interactor
+        // Check if the selecting interactor is a Ray Interactor
         if (args.interactorObject is XRRayInteractor)
         {
             // Try to switch to the left direct interactor
@@ -44,7 +44,7 @@ public class SnapToDirectInteractorManager : MonoBehaviour
 
     private void TrySwitchToLeftDirectInteractor(XRGrabInteractable grabInteractable)
     {
-        if (leftDirectInteractor != null && leftDirectInteractor.hasSelection == false)
+        if (leftDirectInteractor != null && !leftDirectInteractor.hasSelection)
         {
             // Deselect from the ray interactor
             interactionManager.SelectExit(grabInteractable.interactorsSelecting[0], grabInteractable);
