@@ -71,8 +71,8 @@ public partial class @XRInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bb62fe86-1635-418b-9cfb-a17000c046fb"",
-                    ""path"": ""<XRController>{LeftHand}/{Primary2DAxis}"",
+                    ""id"": ""56b58f2b-431a-4a20-b181-b999cfc13a76"",
+                    ""path"": ""<XRController>{LeftHand}/primary2DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
