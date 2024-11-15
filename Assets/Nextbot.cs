@@ -1,13 +1,10 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Nextbot : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Transform target;
     private NavMeshAgent agent;
     System.Random rnd = new System.Random();
@@ -24,38 +21,37 @@ public class Nextbot : MonoBehaviour
     public Material chaseMaterial;
     public Material hideMaterial;
     private Coroutine sparseCoroutine;
-    
+    private float lastActionTime; // Store the last action time
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         chase = true;
+        lastActionTime = Time.time; // Initialize last action time
         sparseCoroutine = StartCoroutine(SparseUpdate());
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (chase)
         {
             agent.destination = target.position;
-            //Debug.Log("Chasing");
         }
         else if (stalk)
         {
             Vector3 randomRange = new Vector3(posx, 0.0f, posz);
             agent.destination = target.position + randomRange;
-            //Debug.Log("Hiding");
         }
-        else {
+        else
+        {
             Vector3 randomRange = new Vector3(posx, 0.0f, posz);
             agent.destination = randomRange;
-            //Debug.Log("Hiding")
         }
-        if (agent.velocity.sqrMagnitude <= 0.0001)
+
+        // Check if agent has stopped and if enough time has passed
+        if (agent.velocity.sqrMagnitude <= 0.0001 && Time.time - lastActionTime >= 1.0f)
         {
-            ExecuteAction(); // Execute action when stopped
+            ExecuteAction();
             ResetCoroutine();
         }
     }
@@ -65,11 +61,12 @@ public class Nextbot : MonoBehaviour
         while (true)
         {
             ExecuteAction();
-            yield return new WaitForSeconds(fireDelay); // Wait for 3 seconds before executing again
+            yield return new WaitForSeconds(fireDelay);
         }
     }
 
-    void ExecuteAction() {
+    void ExecuteAction()
+    {
         int num = rnd.Next(10);
         if ((num >= stalkChance && num < hideChance + stalkChance) || (target.position.y > 100))
         {
@@ -78,7 +75,6 @@ public class Nextbot : MonoBehaviour
             posx = rnd.Next(-mapRange, mapRange);
             posz = rnd.Next(-mapRange, mapRange);
             GetComponent<Renderer>().material = hideMaterial;
-            
         }
         else if (num < stalkChance)
         {
@@ -87,16 +83,17 @@ public class Nextbot : MonoBehaviour
             posx = rnd.Next(-stalkRange, stalkRange);
             posz = rnd.Next(-stalkRange, stalkRange);
             GetComponent<Renderer>().material = stalkMaterial;
-            
         }
-        else {
+        else
+        {
             chase = true;
             stalk = false;
             GetComponent<Renderer>().material = chaseMaterial;
-            
         }
+
+        lastActionTime = Time.time; // Update last action time
     }
-    
+
     void ResetCoroutine()
     {
         if (sparseCoroutine != null)
@@ -105,5 +102,4 @@ public class Nextbot : MonoBehaviour
         }
         sparseCoroutine = StartCoroutine(SparseUpdate());
     }
-
 }
