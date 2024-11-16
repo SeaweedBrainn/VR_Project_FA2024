@@ -149,3 +149,4 @@ MonoBehaviour:
   teleportTarget: {fileID: 0}
   disappearTime: 3
   bounceForce: 10
+  hitNoise: {fileID: 0}

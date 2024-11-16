@@ -9,6 +9,7 @@ public class TurretController : MonoBehaviour
     public float fireRate = 1.0f;      // Fire rate of the turret
     public float force = 10f;
     public Vector3 activationRange = new Vector3(10, 5, 10); // Range to activate turret
+    public AudioSource hitSound;
 
     private float nextFireTime = 0f;
 
@@ -40,5 +41,6 @@ public class TurretController : MonoBehaviour
 
         // Add the BallController script to the ball and set teleport target
         ball.GetComponent<BallController>().teleportTarget = teleportTarget;
+        ball.GetComponent<BallController>().hitNoise = hitSound;
     }
 }

@@ -5,7 +5,7 @@ public class BallController : MonoBehaviour
     public GameObject teleportTarget;  // GameObject to teleport the player to
     public float disappearTime = 3.0f; // Time after which the ball disappears
     public float bounceForce = 10f;    // Force applied when bouncing off an obstacle
-
+    public AudioSource hitNoise;
     private Rigidbody rb;
 
     private void Start()
@@ -41,9 +41,8 @@ public class BallController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // Teleport the player to the teleport target position
+            hitNoise.Play();
             other.gameObject.transform.position = teleportTarget.transform.position;
-            Destroy(gameObject);
         }
         else
         {
