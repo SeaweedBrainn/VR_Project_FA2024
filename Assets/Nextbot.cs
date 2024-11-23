@@ -22,6 +22,8 @@ public class Nextbot : MonoBehaviour
     public Material hideMaterial;
     private Coroutine sparseCoroutine;
     private float lastActionTime; // Store the last action time
+    public GameObject beacon;
+    private Renderer r;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class Nextbot : MonoBehaviour
         chase = true;
         lastActionTime = Time.time; // Initialize last action time
         sparseCoroutine = StartCoroutine(SparseUpdate());
+        r = beacon.GetComponent<Renderer>();
     }
 
     void Update()
@@ -74,7 +77,7 @@ public class Nextbot : MonoBehaviour
             stalk = false;
             posx = rnd.Next(-mapRange, mapRange);
             posz = rnd.Next(-mapRange, mapRange);
-            GetComponent<Renderer>().material = hideMaterial;
+            r.material = hideMaterial;
         }
         else if (num < stalkChance)
         {
@@ -82,13 +85,13 @@ public class Nextbot : MonoBehaviour
             stalk = true;
             posx = rnd.Next(-stalkRange, stalkRange);
             posz = rnd.Next(-stalkRange, stalkRange);
-            GetComponent<Renderer>().material = stalkMaterial;
+            r.material = stalkMaterial;
         }
         else
         {
             chase = true;
             stalk = false;
-            GetComponent<Renderer>().material = chaseMaterial;
+            r.material = chaseMaterial;
         }
 
         lastActionTime = Time.time; // Update last action time
