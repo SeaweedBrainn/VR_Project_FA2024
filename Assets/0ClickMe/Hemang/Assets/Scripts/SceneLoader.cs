@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        //Resources.UnloadUnusedAssets();
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 }
