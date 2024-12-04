@@ -6,11 +6,12 @@ TagManager:
   tags:
   - room2Buttons
   - Obstacle
+  - CollisionBox
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - controlGuide
   - Water
   - UI
   - ControlRoom
