@@ -71,7 +71,7 @@ public class Nextbot : MonoBehaviour
     void ExecuteAction()
     {
         int num = rnd.Next(10);
-        if ((num >= stalkChance && num < hideChance + stalkChance) || (target.position.y > 100))
+        if ((target== null) || (num >= stalkChance && num < hideChance + stalkChance) || (target.position.y > 100))
         {
             chase = false;
             stalk = false;
